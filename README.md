@@ -2,13 +2,13 @@
 
 Hello everyone! So this is the code for the physics simulation game.
 
-**!! IMPORTANT !!**\n
-For the code to actually work in ur game, you need to follow these instructions:\n
-1.) Download ALL the files and place them in ONE folder\n
-2.) Inside the folder containing the files, make a new folder named ASSETS, it has to be exactly ASSETS\n
-3.) Inside ASSETS, place all the .png images linked in the google drive\n
-4.) please DO NOT change any of the file names as that will mess with the code\n
-5.) https://drive.google.com/drive/u/0/folders/19sCJdZKBdVnaTegzUsxVv3EJgcofa5eQ\n
+**!! IMPORTANT !!**
+For the code to actually work in ur game, you need to follow these instructions:
+> 1.) Download ALL the files and place them in ONE folder
+>> 2.) Inside the folder containing the files, make a new folder named ASSETS, it has to be exactly ASSETS
+>> 3.) Inside ASSETS, place all the .png images linked in the google drive
+>> 4.) please DO NOT change any of the file names as that will mess with the code
+>> 5.) https://drive.google.com/drive/u/0/folders/19sCJdZKBdVnaTegzUsxVv3EJgcofa5eQ
 
 **Updates**
 >> I have managed to fully finish the Simulation Portion of the Game including the optics and the values displayed
