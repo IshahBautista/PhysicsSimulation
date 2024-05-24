@@ -2,7 +2,7 @@
 
 Hello everyone! So this is the code for the physics simulation game.
 
-**!! IMPORTANT !!**
+****!! IMPORTANT !!****
 For the code to actually work in ur game, you need to follow these instructions:
 > 1.) Download ALL the files and place them in ONE folder
 > 2.) Inside the folder containing the files, make a new folder named ASSETS, it has to be exactly ASSETS
@@ -22,9 +22,9 @@ For the code to actually work in ur game, you need to follow these instructions:
 >> approximately correct as best as can be. I'm looking for a way to decrease the max distance by changing the pixel to meter
 >> ratio but as of now kana sa. The max distance is currently a little over 940m, thus the numbers should be quite large.
 
-**> Will the box in the input be there sa final? (Its ugly asf fr fr)**
+> Will the box in the input be there sa final? (Its ugly asf fr fr)
 >> No, dle lang ko kabalo saon pag tanggal hehe figure out pa nako later lol :3
 
-**> What else can I do?**
+> What else can I do?
 >> Review the code, check for bugs, and make sure that everything works as they should, also pls check if the values
 >> in the simulation line up with the actual calculations.
