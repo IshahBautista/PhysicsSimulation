@@ -7,12 +7,13 @@ from textInput import TextInput
 from buttonImage import ButtonImg
 pygame.init()
 
+
+screenWidthPixels = 1920
+screenHeightPixels = 1080
 # Initialize font
 font = pygame.font.SysFont("Oswald", 80)
 
-# Convert screen size to pixels for Pygame
-screenWidthPixels = 1920
-screenHeightPixels = 1080
+
 
 # Get the directory of the current script
 script_dir = os.path.dirname(__file__)
@@ -25,9 +26,11 @@ scaled_background = pygame.transform.scale(play_background, (screenWidthPixels, 
 
 # Load Assets and Art
 BOXasset = pygame.image.load(os.path.join(script_dir, 'ASSETS', 'BOX.png'))
-scaledBOXasset = pygame.transform.scale(BOXasset, (screenWidthPixels * 0.07, screenWidthPixels * 0.07))
+scaledBOXasset = pygame.transform.scale(BOXasset, (screenWidthPixels * 0.09, screenWidthPixels * 0.09))
 PUSHFORCEasset = pygame.image.load(os.path.join(script_dir, 'ASSETS', 'PUSHFORCE.png'))
 scaledPUSHFORCEasset = pygame.transform.scale(PUSHFORCEasset, (screenWidthPixels * 0.07, screenWidthPixels * 0.07))
+BOX_2asset = pygame.image.load(os.path.join(script_dir, 'ASSETS', 'BOX_2.png'))
+scaledBOX_2asset = pygame.transform.scale(BOX_2asset, (screenWidthPixels * 0.09, screenWidthPixels * 0.09))
 
 # BUTTONS IMAGES
 RETRYbutton = pygame.image.load(os.path.join(script_dir, 'ASSETS', 'RETRY.png'))
@@ -88,20 +91,20 @@ def game():
     global timePassed # Declare timePassed as a global variable
 
     # Initialize text input fields
-    input_force = TextInput(screenWidthPixels * 0.154, screenHeightPixels * 0.098, 200, 60, font, '')
-    input_mass = TextInput(screenWidthPixels * 0.154, screenHeightPixels * 0.179, 200, 60, font, '')
+    input_force = TextInput(screenWidthPixels * 0.154, screenHeightPixels * 0.098, screenWidthPixels *  0.10421, screenHeightPixels * 0.0555566, font, '')
+    input_mass = TextInput(screenWidthPixels * 0.154, screenHeightPixels * 0.179, screenWidthPixels *  0.10421, screenHeightPixels * 0.0555566, font, '')
     
     isReleased = False
 
     # Initialize box position and velocity
     box_x = screenWidthPixels * 0.4
-    box_y = screenHeightPixels * 0.427
+    box_y = screenHeightPixels * 0.391
     box_velocity = 0  # Initial horizontal velocity
     box_acceleration = 0
     
 
     # Initialize arrow position and velocity
-    arrow_x = screenWidthPixels * 0.3319
+    arrow_x = screenWidthPixels * 0.337
     arrow_y = screenHeightPixels * 0.43
     arrow_velocity = 0
     KineticEnergy = 0
@@ -135,12 +138,12 @@ def game():
                 if RETRYbutton.is_over(mouse_pos):
                     # Initialize box position and velocity
                     box_x = screenWidthPixels * 0.4
-                    box_y = screenHeightPixels * 0.427
+                    box_y = screenHeightPixels * 0.391
                     box_velocity = 0  # Initial horizontal velocity
                     box_acceleration = 0
 
                     # Initialize arrow position and velocity
-                    arrow_x = screenWidthPixels * 0.3319
+                    arrow_x = screenWidthPixels * 0.337
                     arrow_y = screenHeightPixels * 0.43
                     arrow_velocity = 0
 
@@ -188,7 +191,7 @@ def game():
 
         # Ensure the box stays within the bounds of the surface
         surface_left = screenWidthPixels * 0.33
-        surface_right = screenWidthPixels * 0.96 - scaledBOXasset.get_width()
+        surface_right = screenWidthPixels * 0.98 - scaledBOXasset.get_width()
         if box_x < surface_left:
             box_x = surface_left
         elif box_x > surface_right:
@@ -197,8 +200,8 @@ def game():
         # Does the same but for the arrow
         if arrow_x < surface_left:
             arrow_x = surface_left
-        elif arrow_x > surface_right - scaledBOXasset.get_width():
-            arrow_x = surface_right - scaledBOXasset.get_width()
+        elif arrow_x > surface_right - scaledBOXasset.get_width() + (screenWidthPixels * 0.03):
+            arrow_x = surface_right - scaledBOXasset.get_width() + (screenWidthPixels * 0.03)
 
         # Displays the Results
         # PRINTS VELOCITY
@@ -229,15 +232,19 @@ def game():
         # Draw the frictionless surface
         pygame.draw.rect(win, darkBlue, (screenWidthPixels * 0.33, screenHeightPixels * 0.55, screenWidthPixels * 0.651, screenHeightPixels * 0.01))
 
-        # Draw the box on the surface
-        win.blit(scaledBOXasset, (box_x, box_y))
+        if (timePassed > 2 and timePassed < 4) or (timePassed > 8 and timePassed < 12) or (timePassed > 15 and timePassed < 18):
+            # Draw the box on the surface
+            win.blit(scaledBOX_2asset, (box_x, box_y))
+        else:
+            # Draw the box on the surface
+            win.blit(scaledBOXasset, (box_x, box_y))
+
         # Draw the push force
         win.blit(scaledPUSHFORCEasset, (arrow_x, arrow_y))
 
         # Draw input fields
         #FORCE
         input_force.draw(win)
-
         #MASS
         input_mass.draw(win)
 
